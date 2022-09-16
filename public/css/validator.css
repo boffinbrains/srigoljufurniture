@@ -1,0 +1,20 @@
+.spinner{
+    position: relative;
+    filter: brightness(.7);
+}
+.spinner::after{
+    content: '\f1ce';
+    font-family: fontawesome;
+    position: absolute;
+    right: -24px;
+    color: #353535;
+    animation: rotate 1s 0s infinite forwards;    
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
