@@ -45,17 +45,14 @@
                     <!-- DropDown -->
                     <div class="drop_down_item rounded container">
                         <div class="row">
-                            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
-                                <img src="{{ asset('home/images/blue-sofa.jpg') }}" class="img-fluid">
-                            </div>
-                            <div class="col-lg-8 col-md-12 col-sm-12 col-12 scroll-sm">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 scroll-sm">
                                 <div class="row">
                                     @php
                                         $i = 0;
                                     @endphp
                                     @foreach ($categories as $category)
                                         <div
-                                            class="col-lg-4 col-md-12 col-sm-12 col-12 {{ ++$i % 3 ? 'border-right' : '' }} @if (Request::is($category->slug)) text-danger @endif">
+                                            class="col-lg-3 col-md-12 col-sm-12 col-12 {{ ++$i % 4 ? 'border-right' : '' }} @if (Request::is($category->slug)) text-danger @endif">
                                             <a class="w-100 d-flex px-xl-3 px-lg-2 px-md-2 px-sm-2 px-2 py-2"
                                                 href="{{ url($category->slug) }}">
                                                 {{ $category->title }}
@@ -70,7 +67,7 @@
                 <li>
                     <a href="{{ url('catalogue/download') }}"
                         class="nav-link {{ Request::is('catalogue/download') ? 'active_menu' : '' }}">
-                        Catalogue
+                        Download Catalogues
                     </a>
                 </li>
                 <li>
