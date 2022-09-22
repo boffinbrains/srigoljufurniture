@@ -22,8 +22,5 @@ class Routes {
         'role' => 'RoleController',
         'permission' => 'PermissionController',
         'testimonial' => 'TestimonialController',
-        'termscondition' => 'TermController',
-        'privacypolicy' => 'PolicyController',
-        'servicessupport' => 'ServiceController'
     ];
 }

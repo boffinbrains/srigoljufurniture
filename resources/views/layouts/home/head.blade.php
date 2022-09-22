@@ -44,3 +44,16 @@
 <script src="{{ asset('home/js/jquery.magnific-popup.min.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('home/css/magnific-popup.css') }}">
 <!-- Magnific Popup -->
+<!-- Node Snackbar -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.css"
+    integrity="sha512-pKdIPri9vb1aqcci9Rsl1xO7n74wHe5+RMcqRufN36EnXVtOsbct0VKDtBdhAnSCqZeny2jiZBSpXp0iDSzZ+Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"
+    integrity="sha512-iILlngu0qmiyIkOH6MV1RWSya+DL2uzo0cb/nKR4hqwz9H+Xnop1++f8TMw1j5CdbutXGkBUyfRUfg/hmNBfZg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Node Snackbar -->
+<!-- js-cookie -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"
+    integrity="sha512-wT7uPE7tOP6w4o28u1DN775jYjHQApdBnib5Pho4RB0Pgd9y7eSkAV1BTqQydupYDB9GBhTcQQzyNMPMV3cAew=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- js-cookie -->

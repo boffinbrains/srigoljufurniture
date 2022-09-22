@@ -45,12 +45,7 @@ $(document).ready(function () {
             email.focus();
         }
     })
-    // Location
-    $('.location_btn').on('click', function (e) {
-        var location = $(this).attr('data-location');
-        document.cookie = `location = ${location};`;
-        $('#location').modal('hide');
-    })
+   
     // quick_enquiry
     $('#quick_enquiry_btn').on('click', function (e) {
         e.preventDefault();
