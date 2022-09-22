@@ -83,8 +83,10 @@
                 </ul>
             </div>
         </div>
-        <div class="py-2 d-flex justify-content-center mt-3">
-            &copy; Sri Golju Furniture Industries | All Rights Reserved
+        <div class="py-2 text-center mt-3">
+            &copy; Sri Golju Furniture Industries <br> All Rights Reserved | Powered by
+            <a target="_blank" href="https://boffinbrains.com"> BoffinBrains
+            </a>
         </div>
     </div>
     {{-- back to top btn --}}
