@@ -46,11 +46,11 @@ $(document).ready(function () {
         }
     })
     // Location
-    $('.location_btn').on('click', function(e) {
-        var location = $(this).attr('data-location');
-        document.cookie = `location = ${location};`;
-        $('#location').modal('hide');
-    })
+    // $('.location_btn').on('click', function(e) {
+    //     var location = $(this).attr('data-location');
+    //     document.cookie = `location = ${location};`;
+    //     $('#location').modal('hide');
+    // })
     // quick_enquiry
     $('#quick_enquiry_btn').on('click', function(e) {
         e.preventDefault();
@@ -73,25 +73,6 @@ $(document).ready(function () {
             }
         }else{
             errorResponser('Name Required', enquiry_name);
-        }
-    })
-     // request_quote
-    $('#request_quote_btn').on('click', function(e) {
-        e.preventDefault();
-        var request_name = $("input[name=request_name]");
-        var request_mobile_number = $("input[name=request_mobile_number]");
-
-        if(request_name.val()){
-            if(request_mobile_number.val()){
-                formAjaxSubmit('request-form-submit','#request_quote','#request_quote button');
-                setTimeout(()=>{
-                    $('#quote_form').modal('hide');
-                },3700);
-            }else{
-                errorResponser('Enter Valid Mobile Number', request_mobile_number);
-            }
-        }else{
-            errorResponser('Name Required', request_name);
         }
     })
     // contact_us_form

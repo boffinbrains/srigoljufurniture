@@ -599,7 +599,7 @@ button {
     margin-right: 5px;
 }
 
-.location_btn {
+/* .location_btn {
     width: 100%;
     display: flex;
     align-items: center;
@@ -614,7 +614,7 @@ button {
 .location_btn:hover {
     filter: brightness(0.9);
     transition: 0.4s ease-out;
-}
+} */
 
 .search_responsive {
     width: 400px;

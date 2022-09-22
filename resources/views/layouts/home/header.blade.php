@@ -100,8 +100,8 @@
         </form>
     </nav>
 </header>
-{{-- Location Modal --}}
-{{-- <div class="modal fade" id="location" tabindex="-1">
+{{-- Modal --}}
+<!-- <div class="modal fade" id="location" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="w-100 p-lg-4 p-md-3 p-sm-3 p-3 shadow">
@@ -114,4 +114,4 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div> -->

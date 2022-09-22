@@ -4,19 +4,12 @@
     <section>
         <div id="homeMegaBanner" class="carousel_wrapper carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                @php
-                    $i = 1;
-                @endphp
-                @foreach ($banners as $banner)
-                    <a href="{{ url(get_category_slug($banner->category)) }}" class="carousel-item <?php if ($i == 1) {
-                        echo 'active';
-                    } ?>">
+                @foreach ($banners as $key => $banner)
+                    <a href="{{ url(get_category_slug($banner->category)) }}"
+                        class="carousel-item {{ $key == 1 ? 'active' : '' }}">
                         <img src="{{ asset('images/banners/' . $banner->image) }}" class="d-block w-100"
                             alt="{{ $banner->title }}">
                     </a>
-                    @php
-                        $i++;
-                    @endphp
                 @endforeach
             </div>
             <a class="carousel-control-prev" href="#homeMegaBanner" role="button" data-slide="prev"
@@ -41,6 +34,7 @@
             @foreach ($categories as $category)
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6 mb-3">
                     <a class="text-center d-block h-100" href="{{ url($category->slug) }}">
+                        {{-- <a class="text-center d-block h-100" href="{{ route('category', ['brand' => , 'category' => $category->slug]) }}"> --}}
                         <figure class="d-flex align-items-center m-auto" style="width:70px;height:70px">
                             <img src="{{ asset('images/category/' . $category->thumbnail) }}" alt="{{ $category->title }}"
                                 class="img-fluid">
@@ -177,25 +171,86 @@
     </section>
     {{-- Testimonial --}}
     <div id="google-reviews"></div>
-
+    <div class="modal fade" id="quote_form" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="row">
+                        <section class="col-12 col-md-6">
+                            <figure class="mb-0 overflow-hidden h-100">
+                                <img src="{{ asset('images/Discount-Popup.jpg') }}" alt="Image" class="w-100 h-100"
+                                    style="object-fit: cover">
+                            </figure>
+                        </section>
+                        <section class="col-12 col-md-6">
+                            <div class="py-5 pr-4">
+                                <h3 class="mb-4">
+                                    Get Instant 15% Discount on the selected categories
+                                </h3>
+                                <form class="w-100" autocomplete="off" action="{{ url('request-form-submit') }}"
+                                    method="post">
+                                    @csrf
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="name"
+                                            placeholder="Your Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control" name="mobile_number"
+                                            placeholder="Your Mobile Number" maxlength="10" pattern="[6-9]{1}[0-9]{9}"
+                                            title="Enter Valid Mobile Number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="product_name" class="form-control"
+                                            placeholder="Product Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message" rows="7" placeholder="Type your message here..." class="form-control"
+                                            style="resize: none;"></textarea>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button class="btn btn_primary">
+                                            Send
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <link rel="stylesheet" href="https://cdn.rawgit.com/stevenmonson/googleReviews/master/google-places.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/gh/stevenmonson/googleReviews@6e8f0d794393ec657dab69eb1421f3a60add23ef/google-places.js">
     </script>
     <script
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDeivU57j-macv2fXXgbhKGM6cqMLmnAFI&signed_in=true&libraries=places">
     </script>
-
     <script>
-        jQuery(document).ready(function($) {
+        $(document).ready(function() {
+
+            setTimeout(() => {
+                let discountModal = Cookies.get('discountModal');
+                if (discountModal == 1) {
+                    Cookies.set('discountModal', 2, {
+                        expires: 30
+                    });
+                    $('#quote_form').modal('show');
+                } else {
+                    Cookies.set('discountModal', 1, {
+                        expires: 30
+                    });
+                    $('#quote_form').modal('show');
+                }
+            }, 8000);
+
             $("#google-reviews").googlePlaces({
-                placeId: 'ChIJ6-gmZx6boDkRC3RmYSiwjqA' //Note By BoffinBrains Find placeID @: https://developers.google.com/places/place-id
-                    ,
+                placeId: "{{ env('GOOGLE_REVIEW_API_KEY') }}", //Note By BoffinBrains Find placeID @: https://developers.google.com/places/place-id,
                 render: ['reviews'],
                 min_rating: 3,
                 max_rows: 1
             });
-        });
+        })
     </script>
 @endsection

@@ -251,43 +251,6 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                    <p>
-                        <i class="nav-icon fas fa-globe"></i>
-                        Policy
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    @can('isAdmin')
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-money-check"></i>
-                                <p>
-                                    Terms & Conditions
-                                </p>
-                            </a>
-                        </li>
-                    @endcan
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-file-invoice"></i>
-                            <p>
-                                Privacy Policy
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-file-invoice"></i>
-                            <p>
-                                Services & Support
-                            </p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

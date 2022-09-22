@@ -42,6 +42,10 @@ Route::group(['namespace'=>'Home'], function(){
     Route::get('/privacy-policy', 'HomeController@privacy');
     Route::get('/service-support', 'HomeController@service');
 
+    // Route::get('/{brand}', 'ProductController@brand');
+    // Route::get('/{brand}/{category}', 'ProductController@category')->name('category');
+    // Route::get('/{brand}/{category}/{slug}', 'ProductController@productDetail');
+
     Route::get('/{slug?}', 'ProductController@index');
 });
 
