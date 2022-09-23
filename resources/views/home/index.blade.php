@@ -229,28 +229,29 @@
     </script>
     <script>
         $(document).ready(function() {
-
             setTimeout(() => {
                 let discountModal = Cookies.get('discountModal');
-                if (discountModal == 1) {
-                    Cookies.set('discountModal', 2, {
+                if(discountModal === undefined) {
+                    Cookies.set('discountModal', 1, {
                         expires: 30
                     });
                     $('#quote_form').modal('show');
-                } else {
-                    Cookies.set('discountModal', 1, {
+                    return;
+                }
+                if (discountModal == 1) {
+                    Cookies.set('discountModal', 2, {
                         expires: 30
                     });
                     $('#quote_form').modal('show');
                 }
             }, 8000);
 
-            $("#google-reviews").googlePlaces({
-                placeId: "{{ env('GOOGLE_REVIEW_API_KEY') }}", //Note By BoffinBrains Find placeID @: https://developers.google.com/places/place-id,
-                render: ['reviews'],
-                min_rating: 3,
-                max_rows: 1
-            });
+            // $("#google-reviews").googlePlaces({
+            //     placeId: "{{ env('GOOGLE_REVIEW_API_KEY') }}", //Note By BoffinBrains Find placeID @: https://developers.google.com/places/place-id,
+            //     render: ['reviews'],
+            //     min_rating: 3,
+            //     max_rows: 1
+            // });
         })
     </script>
 @endsection

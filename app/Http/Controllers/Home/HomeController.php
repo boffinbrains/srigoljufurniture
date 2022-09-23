@@ -220,9 +220,12 @@ class HomeController extends Controller
             'message' => 'nullable',
             'product_name' => 'nullable|max:255',
         ]);
-
+        $expires = time() + 60 * 60 * 24 * 30;
+        setcookie('discountModal', 2, $expires, '/');
         Enquiry::create($request->all());
-        return redirect()->back()->with('status', 'Thank you for contacting us.');
+        return redirect()
+            ->back()
+            ->with('status', 'Thank you for contacting us.');
     }
 
     public function search(Request $request)

@@ -35,4 +35,3 @@
         </div>
     </section>
 </div>
-@include('home.includes.snackbar')

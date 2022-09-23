@@ -71,24 +71,24 @@ $(document).ready(function () {
         }
     })
     // request_quote
-    $('#request_quote_btn').on('click', function (e) {
-        e.preventDefault();
-        var request_name = $("input[name=request_name]");
-        var request_mobile_number = $("input[name=request_mobile_number]");
+    // $('#request_quote_btn').on('click', function (e) {
+    //     e.preventDefault();
+    //     var request_name = $("input[name=request_name]");
+    //     var request_mobile_number = $("input[name=request_mobile_number]");
 
-        if (request_name.val()) {
-            if (request_mobile_number.val()) {
-                formAjaxSubmit('request-form-submit', '#request_quote', '#request_quote button');
-                setTimeout(() => {
-                    $('#quote_form').modal('hide');
-                }, 3700);
-            } else {
-                errorResponser('Enter Valid Mobile Number', request_mobile_number);
-            }
-        } else {
-            errorResponser('Name Required', request_name);
-        }
-    })
+    //     if (request_name.val()) {
+    //         if (request_mobile_number.val()) {
+    //             formAjaxSubmit('request-form-submit', '#request_quote', '#request_quote button');
+    //             setTimeout(() => {
+    //                 $('#quote_form').modal('hide');
+    //             }, 3700);
+    //         } else {
+    //             errorResponser('Enter Valid Mobile Number', request_mobile_number);
+    //         }
+    //     } else {
+    //         errorResponser('Name Required', request_name);
+    //     }
+    // })
     // contact_us_form
     $('#contact_us_form_btn').on('click', function (e) {
         e.preventDefault();
