@@ -10,6 +10,7 @@
     <!--    <img src="{{asset('home/images/logo.svg')}}" alt="">-->
     <!--</div>-->
 
+    @IncludeIf('home.includes.snackbar')
     @IncludeIf('layouts.home.header')
     @yield('body')
     @IncludeIf('layouts.home.footer')

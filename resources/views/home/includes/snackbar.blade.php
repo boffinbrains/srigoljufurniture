@@ -1,13 +1,12 @@
 @if (Session::has('status'))
     <script>
-        var value = "{{ Session::get('status') }}";
         Snackbar.show({
-            pos: 'bottom-center',
-            backgroundColor: '#000',
+            pos: 'top-center',
+            backgroundColor: '#808080',
             textColor: '#fff',
             actionTextColor: '#fff',
             actionText: '<i class="bi bi-x-lg"></i>',
-            text: value
+            text: @json(session()->get('status'))
         });
     </script>
 @endif
@@ -25,7 +24,7 @@
             })
         }
         Snackbar.show({
-            pos: 'bottom-center',
+            pos: 'top-center',
             backgroundColor: '#d12626',
             textColor: '#fff',
             actionTextColor: '#fff',
