@@ -6,10 +6,15 @@
         </figure>
     </section>
     <section class="col-12 col-md-6">
-        <div class="py-5 pr-4">
-            <h3 class="mb-4">
-                Request Quote
-            </h3>
+        <div class="py-5 px-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="mr-2">
+                    Request Quote
+                </h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <form class="w-100" autocomplete="off" action="{{ url('request-form-submit') }}" method="post">
                 @csrf
                 <div class="form-group">

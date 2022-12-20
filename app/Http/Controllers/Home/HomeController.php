@@ -38,7 +38,34 @@ class HomeController extends Controller
         $stores = Stores::all();
         $categories = Category::where(['status' => 1])->get();
         $testimonials = Testimonials::all();
-        return view('home.index', compact('title', 'metaData', 'banners', 'products', 'brands', 'testimonials', 'about', 'stores', 'categories'));
+        $festiveBanners = [
+            (object)[
+                'brand' => 'geeken',
+                'image' => 'home/images/banner-1.jpg',
+                'altText' => 'Discount on Geeken Furniture'
+            ],
+            (object)[
+                'brand' => 'table',
+                'image' => 'home/images/banner-2.jpg',
+                'altText' => 'Discount on Modular Kitchen'
+            ],
+            (object)[
+                'brand' => 'mall-rack',
+                'image' => 'home/images/banner-3.jpg',
+                'altText' => 'Discount on Geeken Furniture'
+            ],
+            (object)[
+                'brand' => 'alder',
+                'image' => 'home/images/banner-4.jpg',
+                'altText' => 'Discount on Modular Kitchen'
+            ],
+            (object)[
+                'brand' => 'supreme',
+                'image' => 'home/images/banner-5.jpg',
+                'altText' => 'Discount on Modular Kitchen'
+            ]
+        ];
+        return view('home.index', compact('title', 'metaData', 'banners', 'products', 'brands', 'testimonials', 'about', 'stores', 'categories', 'festiveBanners'));
     }
 
     public function contactUs()
@@ -64,8 +91,16 @@ class HomeController extends Controller
     {
         $title = 'Catalogue';
         $metaData = Catalogue::latest()->first();
-        $data = Catalogue::all()->where('status', 1);
+        $catalogues = Catalogue::where('status', 1)->where('meta_title', '!=', null)->get();
         $categories = Category::all();
+        $data = [];
+        foreach($catalogues as $key => $catalogue) {
+            if($key === 0) {
+                $data[$catalogue->meta_title][] = $catalogue;
+            } else {
+                $data[$catalogue->meta_title][] = $catalogue;
+            }
+        }
         return view('home.catalogue', compact('title', 'metaData', 'data', 'categories'));
     }
 
@@ -150,7 +185,7 @@ class HomeController extends Controller
                 $messages->subject('Thank you for contacting Sri Golju Furniture Industries');
             });
             Mail::send('home.emails.contactUsMail', compact('data'), function ($messages) use ($email) {
-                $messages->to($_ENV['MAIL_USERNAME']);
+                $messages->to($_ENV['MAIL_FROM_ADDRESS']);
                 $messages->subject('New Enquiry');
             });
             return response()->json(
@@ -186,7 +221,7 @@ class HomeController extends Controller
             ];
             // View,data,function
             Mail::send('home.emails.quickEnquiryMail', compact('data'), function ($messages) {
-                $messages->to($_ENV['MAIL_USERNAME']);
+                $messages->to($_ENV['MAIL_FROM_ADDRESS']);
                 $messages->subject('New Enquiry');
             });
             Mail::send('home.emails.thankYouMail', compact('data'), function ($messages) use ($email) {

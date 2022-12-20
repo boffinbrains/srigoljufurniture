@@ -5,7 +5,7 @@
         <div id="homeMegaBanner" class="carousel_wrapper carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 @foreach ($banners as $key => $banner)
-                    <a href="{{ url(get_category_slug($banner->category)) }}"
+                    <a href="#"
                         class="carousel-item {{ $key == 1 ? 'active' : '' }}">
                         <img src="{{ asset('images/banners/' . $banner->image) }}" class="d-block w-100"
                             alt="{{ $banner->title }}">
@@ -74,38 +74,15 @@
     {{-- Offers banner --}}
     <section class="container-fluid w-100 py-lg-4 py-md-3 py-sm-3 py-3">
         <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
-                <div class="shadow overflow-hidden">
-                    <a href="{{ url('geeken?type=discount') }}">
-                        <img src="{{ asset('home/images/banner-A-2.jpg') }}" alt="Discount on Geeken Furniture"
-                            class="img-fluid">
-                    </a>
+            @foreach($festiveBanners as $festiveBanner)
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
+                    <div class="shadow overflow-hidden">
+                        <a href="{{ url($festiveBanner->brand) }}">
+                            <img src="{{ asset($festiveBanner->image) }}" alt="{{ $festiveBanner->altText }}" class="img-fluid">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
-                <div class="shadow overflow-hidden">
-                    <a href="{{ url('modular?type=discount') }}">
-                        <img src="{{ asset('home/images/banner-A-1.jpg') }}" alt="Discount on Modular Kitchen"
-                            class="img-fluid">
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
-                <div class="shadow overflow-hidden">
-                    <a href="{{ url('/mall-rack') }}">
-                        <img src="{{ asset('home/images/mall-rack-banner.jpg') }}" alt="Discount on Geeken Furniture"
-                            class="img-fluid">
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
-                <div class="shadow overflow-hidden">
-                    <a href="{{ url('/modular-kitchen') }}">
-                        <img src="{{ asset('home/images/Modular-kitchen-banner.jpg') }}" alt="Discount on Modular Kitchen"
-                            class="img-fluid">
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
     {{-- About --}}
@@ -183,10 +160,15 @@
                             </figure>
                         </section>
                         <section class="col-12 col-md-6">
-                            <div class="py-5 pr-4">
-                                <h3 class="mb-4">
-                                    Get Instant 15% Discount on the selected categories
-                                </h3>
+                            <div class="py-5 px-4">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h3 class="mr-2">
+                                        Get Instant 15% Discount on the selected categories
+                                    </h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                                 <form class="w-100" autocomplete="off" action="{{ url('request-form-submit') }}"
                                     method="post">
                                     @csrf

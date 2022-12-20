@@ -7,10 +7,26 @@
             <div>
                 <span class="display-4 font-weight-bold">Download Our Catalogues</span>
                 <p class="text-muted mt-2">We have a vast range of good quality furniture</p>
-                <div class="d-flex flex-lg-row flex-md-row flex-sm-column flex-column flex-wrap">
-                    @foreach ($data as $pdf)
-                    <a class="download_btn mr-4 my-3"
-                        href="{{asset('catalogue/'.$pdf->pdf)}}">{{$pdf->title}}</a>
+                <div>
+                    @foreach ($data as $catalogueName => $catalogues)
+                        <p>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Parent{{ $loop->index }}" aria-expanded="false" aria-controls="Parent{{ $loop->index }}">
+                                {{ $catalogueName }}
+                            </button>
+                        </p>
+                        <div class="collapse" id="Parent{{ $loop->index }}">
+                            <div class="card">
+                                <div class="card-body">
+                                    @foreach ($catalogues as $catalogue)
+                                        <div class="mb-3"> 
+                                            <a class="download_btn d-inline-block" href="{{asset('catalogue/'.$catalogue->pdf)}}">
+                                                {{$catalogue->title}}
+                                            </a>  
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
