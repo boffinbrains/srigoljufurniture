@@ -10,7 +10,9 @@
                     Rocking Chairs | Cabinets | Book Shelves | TV Unit | Wardrobes | Outdoor Furniture | Bar
                     Cabinets | Wall Shelves | Tables | Dining Room Furniture | Office Furniture | Bed Room Furniture
                     | Dining Table | Beds | Sofas | Geeken Chairs | Geeken Tables | Geeken Office Furniture | Geeken
-                    School Furniture | Geeken Furniture
+                    School Furniture | Geeken Furniture | sleepwell mattresses | Godrej safes | bindal nmttresses | zorin furniture
+                    | grokids | triveni almirah | supreme furniture | nilkamal furniture | kurl on | alder furniture
+                    | alder sofa | alder furniture | playgro furniture | feather foam
                 </p>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
@@ -41,52 +43,66 @@
                         onmouseout="this.style.color='#fff'" title="instagram">
                         <i class="bi bi-instagram h1"></i>
                     </a>
+                    &nbsp;
+                    <a href="https://www.youtube.com/channel/UC9nKO1-Ytlt8z9vrRTO_1iQ" target="_blank"
+                        style="color: #fff;" onmouseover="this.style.color='#00000050'"
+                        onmouseout="this.style.color='#fff'" title="instagram">
+                        <i class="bi bi-youtube h1"></i>
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
-                <div class="footer_sub_heading">
-                    Policy
-                </div>
-                <ul class="list-unstyled m-0">
-                    <li class="mb-2">
-                        <a href="{{ url('term-condition') }}">
-                            Terms & Conditions
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="{{ url('privacy-policy') }}">
-                            Privacy Policy
-                        </a>
-                    </li>
-                </ul>
+            <div class="col-md-6 col-sm-12 col-12 mb-3">
+                @foreach(\App\Models\Stores::all() as $store)
+                    <div class="d-flex flex-column">
+                        {{ $store->title }}
+                        <b class="mb-3">
+                            {{ $store->description }}
+                        </b>
+                    </div>
+                @endforeach
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">
-                <div class="footer_sub_heading">
-                    Contact
-                </div>
-                <ul class="list-unstyled m-0">
-                    <li class="mb-2">
-                        <a href="{{ url('contact-us') }}">
-                            Contact Us
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="{{ url('service-support') }}">
-                            Services & Support
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="{{ url('/') }}">
-                            Stores
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <!--<div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">-->
+            <!--    <div class="footer_sub_heading">-->
+            <!--        Policy-->
+            <!--    </div>-->
+            <!--    <ul class="list-unstyled m-0">-->
+            <!--        <li class="mb-2">-->
+            <!--            <a href="{{ url('term-condition') }}">-->
+            <!--                Terms & Conditions-->
+            <!--            </a>-->
+            <!--        </li>-->
+            <!--        <li class="mb-2">-->
+            <!--            <a href="{{ url('privacy-policy') }}">-->
+            <!--                Privacy Policy-->
+            <!--            </a>-->
+            <!--        </li>-->
+            <!--    </ul>-->
+            <!--</div>-->
+            <!--<div class="col-lg-3 col-md-6 col-sm-12 col-12 mb-3">-->
+            <!--    <div class="footer_sub_heading">-->
+            <!--        Contact-->
+            <!--    </div>-->
+            <!--    <ul class="list-unstyled m-0">-->
+            <!--        <li class="mb-2">-->
+            <!--            <a href="{{ url('contact-us') }}">-->
+            <!--                Contact Us-->
+            <!--            </a>-->
+            <!--        </li>-->
+            <!--        <li class="mb-2">-->
+            <!--            <a href="{{ url('service-support') }}">-->
+            <!--                Services & Support-->
+            <!--            </a>-->
+            <!--        </li>-->
+            <!--        <li class="mb-2">-->
+            <!--            <a href="{{ url('/') }}">-->
+            <!--                Stores-->
+            <!--            </a>-->
+            <!--        </li>-->
+            <!--    </ul>-->
+            <!--</div>-->
         </div>
-        <div class="py-2 text-center mt-3">
-            &copy; Sri Golju Furniture Industries <br> All Rights Reserved | Powered by
-            <a target="_blank" href="https://boffinbrains.com"> BoffinBrains
-            </a>
+        <div class="py-2 d-flex justify-content-center mt-3">
+            &copy; Sri Golju Furniture Industries | All Rights Reserved
         </div>
     </div>
     {{-- back to top btn --}}

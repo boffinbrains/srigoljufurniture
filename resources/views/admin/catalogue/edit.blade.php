@@ -103,7 +103,7 @@ $(document).ready(function() {
             id: 'pdf',
             type: 'file',
             message: 'Pdf Required',
-            required: true
+            required: false
         },
         {
             id: 'meta_title',
